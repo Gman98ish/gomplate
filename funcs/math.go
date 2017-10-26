@@ -1,6 +1,7 @@
 package funcs
 
 import (
+	gmath "math"
 	"sync"
 
 	"github.com/hairyhenderson/gomplate/conv"
@@ -24,6 +25,11 @@ func AddMathFuncs(f map[string]interface{}) {
 	f["math"] = MathNS
 
 	f["add"] = MathNS().Add
+	f["sub"] = MathNS().Sub
+	f["mul"] = MathNS().Mul
+	f["div"] = MathNS().Div
+	f["mod"] = MathNS().Mod
+	f["pow"] = MathNS().Pow
 }
 
 // MathFuncs -
@@ -52,4 +58,9 @@ func (f *MathFuncs) Div(a, b interface{}) int64 {
 // Mod -
 func (f *MathFuncs) Mod(a, b interface{}) int64 {
 	return conv.ToInt64(a) % conv.ToInt64(b)
+}
+
+// Pow -
+func (f *MathFuncs) Pow(a, b interface{}) int64 {
+	return conv.ToInt64(gmath.Pow(conv.ToFloat64(a), conv.ToFloat64(b)))
 }

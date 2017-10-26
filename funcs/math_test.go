@@ -39,7 +39,12 @@ func TestDiv(t *testing.T) {
 
 func TestMod(t *testing.T) {
 	m := MathNS()
-	assert.Equal(t, int64(1), m.Mod(1, 1))
-	assert.Equal(t, int64(-1), m.Mod(-5, 5))
-	assert.Equal(t, int64(0), m.Mod(true, "42"))
+	assert.Equal(t, int64(0), m.Mod(1, 1))
+	assert.Equal(t, int64(2), m.Mod(5, 3.0))
+	// assert.Equal(t, int64(1), m.Mod(true, "42"))
+}
+
+func TestPow(t *testing.T) {
+	m := MathNS()
+	assert.Equal(t, int64(4), m.Pow(2, "2"))
 }
