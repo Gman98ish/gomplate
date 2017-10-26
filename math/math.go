@@ -1,8 +1,12 @@
 package math
 
 // AddInt -
-func AddInt(x, y int64) int64 {
-	return x + y
+func AddInt(n ...int64) int64 {
+	var x int64
+	for _, i := range n {
+		x += i
+	}
+	return x
 }
 
 // SubInt -
@@ -11,8 +15,12 @@ func SubInt(x, y int64) int64 {
 }
 
 // MultInt -
-func MultInt(x, y int64) int64 {
-	return x * y
+func MultInt(n ...int64) int64 {
+	var x int64 = 1
+	for _, i := range n {
+		x *= i
+	}
+	return x
 }
 
 // DivInt -
