@@ -1,6 +1,7 @@
 package funcs
 
 import (
+	"fmt"
 	gmath "math"
 	"sync"
 
@@ -51,8 +52,13 @@ func (f *MathFuncs) Sub(a, b interface{}) int64 {
 }
 
 // Div -
-func (f *MathFuncs) Div(a, b interface{}) int64 {
-	return conv.ToInt64(a) / conv.ToInt64(b)
+func (f *MathFuncs) Div(a, b interface{}) (int64, error) {
+	divisor := conv.ToInt64(a)
+	dividend := conv.ToInt64(b)
+	if dividend == 0 {
+		return 0, fmt.Errorf("Error: division by 0")
+	}
+	return divisor / dividend, nil
 }
 
 // Mod -
