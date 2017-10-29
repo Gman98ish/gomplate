@@ -9,20 +9,28 @@ A set of basic math functions to be able to perform simple arithmetic operations
 
 ## `math.Add`
 
-Adds two numbers together
+**Alias:** `add`
+
+Adds a set of numbers together
 
 ### Usage
 ```go
-math.Add x y
+math.Add n...
 ```
 ```go
-y | math.Add x
+x | math.Add n...
 ```
 
 ### Example
 
 ```console
-$ gomplate -i '{{ math.Add 1 2 }}
-3
+$ gomplate -i '{{ math.Add 1 2 3 4 }}
+10
 ```
+
+## `math.Sub`
+
+**Alias:** `sub`
+
+Subtracts
 
